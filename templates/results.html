@@ -1,10 +1,110 @@
-<h2>🚨 Suspicious Accounts</h2>
-<ul>
-{% for acc, score in suspicious.items() %}
-    <li>
-        {{ acc }} - 
-        <strong>Risk Score: {{ score }}</strong>
-    </li>
-{% endfor %}
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Results</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+            width: 80%;
+        }
+
+        .high { color: red; font-weight: bold; }
+        .medium { color: orange; font-weight: bold; }
+        .low { color: green; font-weight: bold; }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        a {
+            text-decoration: none;
+            background: #1f4037;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background: #145a4a;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📊 Money Muling Analysis Report</h1>
+
+<div class="card">
+    <h2>🚨 Suspicious Accounts</h2>
+
+    {% if suspicious %}
+        <ul>
+        {% for acc, score in suspicious.items() %}
+            <li>
+                {{ acc }} —
+                Risk Score: <strong>{{ score }}</strong>
+
+                {% if score >= 80 %}
+                    <span class="high"> (High Risk)</span>
+                {% elif score >= 50 %}
+                    <span class="medium"> (Medium Risk)</span>
+                {% else %}
+                    <span class="low"> (Low Risk)</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No suspicious accounts detected.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>🔁 Fraud Rings Detected</h2>
+
+    {% if rings %}
+        <ul>
+        {% for ring in rings %}
+            <li>
+                {{ ring.ring_id }} :
+                {{ ring.members }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No fraud rings detected.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>📊 Transaction Network Graph</h2>
+    <iframe src="/graph.html" width="100%" height="550px"></iframe>
+</div>
+
+<div style="text-align:center; margin-top:30px;">
+    <a href="/">⬅ Back to Upload</a>
+</div>
+
+</body>
+</html>
+
 
