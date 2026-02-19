@@ -2,3 +2,5 @@ flask
 pandas
 networkx
 gunicorn
+pyvis
+
