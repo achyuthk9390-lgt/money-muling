@@ -1,0 +1,14 @@
+transaction_id,sender_id,receiver_id,amount
+T1,A,B,1000
+T2,B,C,1000
+T3,C,A,1000
+T4,U1,X,500
+T5,U2,X,500
+T6,U3,X,500
+T7,U4,X,500
+T8,U5,X,500
+T9,U6,X,500
+T10,U7,X,500
+T11,U8,X,500
+T12,U9,X,500
+T13,U10,X,500
