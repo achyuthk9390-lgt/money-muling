@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Results</title>
-</head>
-<body>
-
-<h2>Suspicious Accounts</h2>
+<h2>🚨 Suspicious Accounts</h2>
 <ul>
-{% for acc in suspicious %}
-    <li>{{ acc }}</li>
+{% for acc, score in suspicious.items() %}
+    <li>
+        {{ acc }} - 
+        <strong>Risk Score: {{ score }}</strong>
+    </li>
 {% endfor %}
 </ul>
 
-<h2>Fraud Rings</h2>
-<ul>
-{% for ring in rings %}
-    <li>{{ ring.ring_id }} : {{ ring.members }}</li>
-{% endfor %}
-</ul>
-
-<h2>Transaction Graph</h2>
-<iframe src="/static/graph.html" width="100%" height="600px"></iframe>
-
-<br><br>
-<a href="/">Go Back</a>
-
-</body>
-</html>
