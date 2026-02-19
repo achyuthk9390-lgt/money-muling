@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Money Muling Detector</title>
+<title>Money Muling Detection System</title>
+<style>
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #1f4037, #99f2c8);
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+.container {
+    background: white;
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+}
+button {
+    padding: 10px 20px;
+    background: #1f4037;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background: #145a4a;
+}
+</style>
 </head>
 <body>
-    <h2>Upload Transaction CSV</h2>
 
+<h1>💰 Money Muling Detection System</h1>
+
+<div class="container">
+    <h3>Upload Transaction CSV</h3>
     <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <button type="submit">Upload</button>
+        <input type="file" name="file" required><br><br>
+        <button type="submit">Analyze Transactions</button>
     </form>
+</div>
+
 </body>
 </html>
